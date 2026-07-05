@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tattoo Aftercare</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    /* ── Base ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100dvh;
+      background: #1a1a2e;
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(90,60,40,.35) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(60,40,90,.35) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 3rem;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #2c1a0e;
+    }
+
+    /* ── Card wrapper ───────────────────────────────────── */
+    .card {
+      background: #faf6f0;
+      border-radius: 2rem;
+      max-width: 420px;
+      width: 100%;
+      padding: 2.5rem 2rem 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 4px 12px rgba(0,0,0,.3);
+      position: relative;
+      border: 1px solid rgba(180,140,100,.3);
+    }
+
+    /* kraft-paper inner border */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1.5px solid rgba(150,110,70,.25);
+      border-radius: 1.6rem;
+      pointer-events: none;
+    }
+
+    /* ── Title ──────────────────────────────────────────── */
+    h1 {
+      font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+      font-size: clamp(1.7rem, 6vw, 2.2rem);
+      font-weight: 400;
+      text-align: center;
+      color: #2c1a0e;
+      margin-bottom: 2rem;
+      letter-spacing: .02em;
+      line-height: 1.2;
+    }
+
+    /* ── Step list ──────────────────────────────────────── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .icon-wrap {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-wrap svg {
+      width: 100%;
+      height: 100%;
+      stroke: #2c1a0e;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .step-text {
+      font-size: clamp(.95rem, 4vw, 1.1rem);
+      line-height: 1.4;
+      color: #2c1a0e;
+    }
+
+    /* ── Divider ────────────────────────────────────────── */
+    .divider {
+      width: 60%;
+      height: 1px;
+      background: rgba(150,110,70,.3);
+      margin: 2rem auto;
+    }
+
+    /* ── QR Section ─────────────────────────────────────── */
+    .qr-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .8rem;
+    }
+
+    .qr-label {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #8a6a4a;
+      text-align: center;
+    }
+
+    #qrcode {
+      background: white;
+      padding: 10px;
+      border-radius: .6rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    }
+
+    #qrcode canvas, #qrcode img { display: block; }
+
+    .qr-hint {
+      font-size: .72rem;
+      color: #a07850;
+      text-align: center;
+      max-width: 260px;
+      line-height: 1.5;
+    }
+
+    /* ── Responsive tweaks ──────────────────────────────── */
+    @media (max-width: 360px) {
+      .card { padding: 2rem 1.2rem 1.6rem; }
+      .icon-wrap { width: 46px; height: 46px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>tattoo aftercare</h1>
+
+  <div class="steps">
+
+    <!-- 1 · Sun -->
+    <div class="step">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <!-- circle -->
+          <circle cx="24" cy="24" r="9"/>
+          <!-- rays -->
+          <line x1="24" y1="4"  x2="24" y2="10"/>
+          <line x1="24" y1="38" x2="24" y2="44"/>
+          <line x1="4"  y1="24" x2="10" y2="24"/>
+          <line x1="38" y1="24" x2="44" y2="24"/>
+          <line x1="9.5"  y1="9.5"  x2="13.8" y2="13.8"/>
+          <line x1="34.2" y1="34.2" x2="38.5" y2="38.5"/>
+          <line x1="38.5" y1="9.5"  x2="34.2" y2="13.8"/>
+          <line x1="13.8" y1="34.2" x2="9.5"  y2="38.5"/>
+        </svg>
+      </div>
+      <p class="step-text"><strong>2–4 Wochen</strong> Sonne vermeiden</p>
+    </div>
+
+    <!-- 2 · No scratching -->
+    <div class="step">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <!-- hand outline -->
+          <path d="M20 36 C20 36 12 28 12 20 C12 16 15 14 18 16
+                   L18 10 C18 8 20 7 22 8 L22 8
+                   C22 6 24 5 26 7
+                   C26 5 28 5 29 7
+                   C30 6 32 7 32 10
+                   L32 22 C34 20 37 21 37 24 C37 29 34 33 30 36 Z"/>
+          <!-- scratch lines (cross) -->
+          <line x1="10" y1="38" x2="18" y2="30"/>
+          <line x1="18" y1="38" x2="10" y2="30"/>
+        </svg>
+      </div>
+      <p class="step-text">nicht <strong>kratzen</strong></p>
+    </div>
+
+    <!-- 3 · Cream -->
+    <div class="step">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <!-- jar body -->
+          <rect x="10" y="22" width="28" height="20" rx="3"/>
+          <!-- jar lid -->
+          <rect x="8"  y="16" width="32" height="8"  rx="3"/>
+          <!-- cream swirl on top of lid -->
+          <path d="M24 16 C24 12 20 10 24 8 C28 6 28 10 24 10"/>
+        </svg>
+      </div>
+      <p class="step-text">täglich <strong>eincremen</strong> für 10 Tage</p>
+    </div>
+
+    <!-- 4 · Soap -->
+    <div class="step">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <!-- bottle body -->
+          <rect x="14" y="18" width="20" height="26" rx="4"/>
+          <!-- pump neck -->
+          <rect x="21" y="10" width="6"  height="10" rx="2"/>
+          <!-- pump head -->
+          <rect x="16" y="7"  width="16" height="5"  rx="2"/>
+          <!-- nozzle -->
+          <line x1="32" y1="9.5" x2="38" y2="9.5"/>
+          <line x1="38" y1="9.5" x2="38" y2="14"/>
+        </svg>
+      </div>
+      <p class="step-text">mit <strong>milder Seife</strong> abwaschen</p>
+    </div>
+
+    <!-- 5 · No swimming / sauna -->
+    <div class="step">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <!-- three water drops -->
+          <path d="M16 14 Q16 8 20 8 Q24 8 24 14 Q24 20 20 20 Q16 20 16 14 Z"/>
+          <path d="M23 22 Q23 16 27 16 Q31 16 31 22 Q31 28 27 28 Q23 28 23 22 Z"/>
+          <path d="M10 26 Q10 20 14 20 Q18 20 18 26 Q18 32 14 32 Q10 32 10 26 Z"/>
+        </svg>
+      </div>
+      <p class="step-text">kein <strong>Schwimmen</strong> oder Sauna</p>
+    </div>
+
+  </div><!-- .steps -->
+
+  <div class="divider"></div>
+
+  <!-- QR Code -->
+  <div class="qr-section">
+    <p class="qr-label">Diese Seite scannen</p>
+    <div id="qrcode"></div>
+    <p class="qr-hint" id="qr-hint">QR-Code wird generiert …</p>
+  </div>
+</div><!-- .card -->
+
+<script>
+  (function () {
+    var url = window.location.href;
+
+    // Strip any trailing # so the QR stays clean when opened as a file
+    if (url.endsWith('#')) url = url.slice(0, -1);
+
+    var qr = new QRCode(document.getElementById('qrcode'), {
+      text: url,
+      width: 160,
+      height: 160,
+      colorDark: '#2c1a0e',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+
+    var hint = document.getElementById('qr-hint');
+    hint.textContent = url.startsWith('file://')
+      ? 'Seite online hosten – dann zeigt der QR-Code die richtige URL.'
+      : url;
+  })();
+</script>
+
+</body>
+</html>
