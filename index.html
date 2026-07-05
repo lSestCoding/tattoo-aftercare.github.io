@@ -136,6 +136,14 @@
       line-height: 1.5;
     }
 
+    .qr-hint a {
+      color: #a07850;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(160,120,80,.4);
+    }
+
+    .qr-hint a:hover { color: #2c1a0e; border-bottom-color: #2c1a0e; }
+
     /* ── Responsive tweaks ──────────────────────────────── */
     @media (max-width: 360px) {
       .card { padding: 2rem 1.2rem 1.6rem; }
@@ -241,33 +249,26 @@
 
   <!-- QR Code -->
   <div class="qr-section">
-    <p class="qr-label">Diese Seite scannen</p>
+    <p class="qr-label">Folg uns auf Instagram</p>
     <div id="qrcode"></div>
     <p class="qr-hint" id="qr-hint">QR-Code wird generiert …</p>
   </div>
 </div><!-- .card -->
 
 <script>
-  (function () {
-    var url = window.location.href;
+  var instagramUrl = 'https://www.instagram.com/therealpanda.ink/';
 
-    // Strip any trailing # so the QR stays clean when opened as a file
-    if (url.endsWith('#')) url = url.slice(0, -1);
+  new QRCode(document.getElementById('qrcode'), {
+    text: instagramUrl,
+    width: 160,
+    height: 160,
+    colorDark: '#2c1a0e',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M
+  });
 
-    var qr = new QRCode(document.getElementById('qrcode'), {
-      text: url,
-      width: 160,
-      height: 160,
-      colorDark: '#2c1a0e',
-      colorLight: '#ffffff',
-      correctLevel: QRCode.CorrectLevel.M
-    });
-
-    var hint = document.getElementById('qr-hint');
-    hint.textContent = url.startsWith('file://')
-      ? 'Seite online hosten – dann zeigt der QR-Code die richtige URL.'
-      : url;
-  })();
+  document.getElementById('qr-hint').innerHTML =
+    '<a href="' + instagramUrl + '" target="_blank" rel="noopener">@therealpanda.ink</a>';
 </script>
 
 </body>
